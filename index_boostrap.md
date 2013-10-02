@@ -8889,13 +8889,13 @@ sanPlot$set(
 ---
 
 
-<div id = 'chart18d81755642b' class = 'rChart d3_sankey'></div>
+<div id = 'chart58cb5d554c' class = 'rChart d3_sankey'></div>
 ﻿<div class="ed"> </div>
 
 <script>
 (function(){
 var params = {
- "dom": "chart18d81755642b",
+ "dom": "chart58cb5d554c",
 "width":    960,
 "height":    500,
 "data": {
@@ -8906,7 +8906,7 @@ var params = {
 "nodeWidth":     15,
 "nodePadding":     10,
 "layout":     32,
-"id": "chart18d81755642b" 
+"id": "chart58cb5d554c" 
 };
 
 params.units ? units = " " + params.units : units = "";
@@ -11791,11 +11791,11 @@ a$chart(zoomType = "xy")
 
 Database: Sample of Cervical Screening Database (Denmark). 
 
-* [ZOOMABLE BUBBLE] (../d3s//bubble.html)
-* [ZOOMABLE BUBBLE NO SIZES](../d3s/bubble_no_prop.html)
-* [INTERACTIVE TREE LAYOUT](../d3s/tree_layout.html)
-* [ZOOMABLE TREE MAP](../d3s/treemap.html)
-* [ZOOMABLE TREE MAP, NO SIZES](../d3s/treemap_noprop.html)
+* [ZOOMABLE BUBBLE] (d3s//bubble.html)
+* [ZOOMABLE BUBBLE NO SIZES](d3s/bubble_no_prop.html)
+* [INTERACTIVE TREE LAYOUT](d3s/tree_layout.html)
+* [ZOOMABLE TREE MAP](d3s/treemap.html)
+* [ZOOMABLE TREE MAP, NO SIZES](d3s/treemap_noprop.html)
 
 ---
 

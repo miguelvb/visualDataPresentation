@@ -1,19 +1,34 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-  <title>Visualize Data in R</title>
   <meta charset="utf-8">
-  <meta name="description" content="Visualize Data in R">
-  <meta name="author" content="Miguel Vazquez-Prada Baillet , miguelvb[at]yahoo.com">
-  <meta name="generator" content="slidify" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
-  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
-    media="only screen and (max-device-width: 480px)" >
-  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Visualize Data in R</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/png" href="favicon.ico">
+  <style>
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+  </style>
+  
+<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-responsive.no-icons.min.css" rel="stylesheet">
+<!-- <link rel="stylesheet" href="/css/bootstrap.min.css"> -->
+<link  rel="stylesheet" 
+    href="http://netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css">
+  <link rel="stylesheet" href="libraries/frameworks/bootstrap/css/bootstrap-responsive.min.css">
+  
+  <link rel="stylesheet" href="libraries/frameworks/bootstrap/css/main.css">
   <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/github.css" />
-  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/morris/css/morris.css"></link>
+  <script src="libraries/frameworks/bootstrap/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/frameworks/bootstrap/js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+    <link rel=stylesheet href="libraries/widgets/morris/css/morris.css"></link>
 <link rel=stylesheet href="libraries/widgets/nvd3/css/nv.d3.css"></link>
 <link rel=stylesheet href="libraries/widgets/leaflet/external/leaflet.css"></link>
 <link rel=stylesheet href="libraries/widgets/leaflet/external/leaflet-rCharts.css"></link>
@@ -26,14 +41,6 @@
 <link rel=stylesheet href="./assets/css/ribbons.css"></link>
 <link rel=stylesheet href="./assets/css/style.css"></link>
 
-  
-  <!-- Grab CDN jQuery, fall back to local if offline -->
-  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
-  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
-  <script data-main="libraries/frameworks/io2012/js/slides" 
-    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
-  </script>
-  
   <script src="libraries/widgets/morris/js/jquery.min.js"></script>
 <script src="libraries/widgets/morris/js/raphael-2.1.0.min.js"></script>
 <script src="libraries/widgets/morris/js/morris.min.js"></script>
@@ -49,29 +56,21 @@
 <script src="libraries/widgets/rickshaw/js/jquery-ui.min.js"></script>
 <script src="libraries/widgets/d3_sankey/js/sankey.js"></script>
 
-
 </head>
-<body style="opacity: 0">
-  <slides class="layout-widescreen">
-    
-    <!-- LOGO SLIDE -->
-        <slide class="title-slide segue nobackground">
-  <hgroup class="auto-fadein">
-    <h1>Visualize Data in R</h1>
-    <h2>graph types and interactivity to explore data</h2>
-    <p>Miguel Vazquez-Prada Baillet , miguelvb[at]yahoo.com<br/>Centre for Epidemiology and Screening , KU</p>
-  </hgroup>
-    <a href="https://github.com/miguelvb/visualDataPresentation/zipball/gh-pages" class="example">
-     Download
-    </a>
-  <article></article>  
-</slide>
-    
-
-    <!-- SLIDES -->
-    <slide class="" id="slide-1" style="background:#FFFFCC;">
-  <article data-timings="">
-    <style>
+<body>
+   <!--[if lt IE 7]>
+     <p class="chromeframe">You are using an outdated browser. 
+       <a href="http://browsehappy.com/">Upgrade your browser today</a> or 
+       <a href="http://www.google.com/chromeframe/?redirect=true"> 
+         install Google Chrome Frame
+       </a> to better experience this site.
+    </p>
+   <![endif]-->
+   <!-- Ref: http://twitter.github.com/bootstrap/examples/hero.html -->
+   
+    <div class="container">
+      
+<style>
 
 </style>
 
@@ -94,16 +93,8 @@
 
 <p>In the last years there has been a <em>revolution</em> in data visualization, that bring new possibilities to display and interact with data. </p>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-2" style="background:#FFFFCC;">
-  <hgroup>
-    <h2>Why display data</h2>
-  </hgroup>
-  <article data-timings="">
-    <p><br/></p>
+<h2>Why display data</h2>
+<p><br/></p>
 
 <ol class = "build incremental">
 <li>To communicate. </li>
@@ -112,38 +103,17 @@
 <li>To discover. </li>
 </ol>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+<h3>The usual suspects</h3>
+<p><center> <img src="figures/plots.png" alt="types of plots"> </center></p>
 
-<slide class="" id="slide-3" style="background:;">
-  <hgroup>
-    <h3>The usual suspects</h3>
-  </hgroup>
-  <article data-timings="">
-    <p><center> <img src="figures/plots.png" alt="types of plots"> </center></p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-4" style="background:#FFFFCC;">
-  <hgroup>
-    <h2>GGPLOT 2</h2>
-  </hgroup>
-  <article data-timings="">
-    <blockquote>
+<h2>GGPLOT 2</h2>
+<blockquote>
 <p>The ggplot2 package, created by Hadley Wickham, offers a powerful graphics language for creating elegant and complex plots. 
 It is unlike most other graphics packages because it has a deep underlying grammar.</p>
 </blockquote>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
 
-<slide class="" id="slide-5" style="background:;">
-  <article data-timings="">
-    <p>Example:<br>
+<p>Example:<br>
 <strong>Proportion of Danish women aged 50-69 years invited to mammography screening</strong></p>
 
 <pre><code class="r">x &lt;- data.frame( years = factor(1990:2010, levels = 1990:2010) ,
@@ -170,24 +140,11 @@ pl &lt;- ggplot(x,aes(x=years, y=percent, fill = percent)) +
   ) 
 </code></pre>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
 
-<slide class="" id="slide-6" style="background:;">
-  <article data-timings="">
-    <p><center><img src="figures/percent.mammogrphy.png" ></center></p>
+<p><center><img src="figures/percent.mammogrphy.png" ></center></p>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-7" style="background:;">
-  <hgroup>
-    <h2>The usual suspects and more in R : ggplot2</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>Map example : </p>
+<h2>The usual suspects and more in R : ggplot2</h2>
+<p>Map example : </p>
 
 <pre><code class="r">m0 &lt;- ggplot(data=MapDf)
 m1 &lt;- m0 + 
@@ -206,27 +163,11 @@ map &lt;- m2 +
 map
 </code></pre>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+<h4>Denmark, cancer cases per region.</h4>
+<p><img src="figures/denmark_cases_2.png" alt="types of plots"></p>
 
-<slide class="" id="slide-8" style="background:;">
-  <hgroup>
-    <h4>Denmark, cancer cases per region.</h4>
-  </hgroup>
-  <article data-timings="">
-    <p><img src="figures/denmark_cases_2.png" alt="types of plots"></p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-9" style="background:;">
-  <hgroup>
-    <h2>More ggplot2 : heat map example</h2>
-  </hgroup>
-  <article data-timings="">
-    <pre><code class="r"># Make the heatmap : 
+<h2>More ggplot2 : heat map example</h2>
+<pre><code class="r"># Make the heatmap : 
 load(&quot;data/month_year&quot;)
 c.scale &lt;- scale_fill_gradient(low = &quot;white&quot;, 
                                 high = &quot;steelblue&quot;,
@@ -237,40 +178,20 @@ p1 &lt;- ggplot(month_year, aes(month, year)) +
 p2 &lt;- p1 + c.scale
 </code></pre>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
 
-<slide class="" id="slide-10" style="background:;">
-  <article data-timings="">
-    <pre><code class="r">p2
+<pre><code class="r">p2
 </code></pre>
 
 <p><img src="assets/fig/ggplot3.png" alt="plot of chunk ggplot3"> </p>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+<h2>Not so usual plots and diagrams</h2>
+<p>London Cycle Hire and Pollution, made with R and ggplot</p>
 
-<slide class="notso" id="slide-11" style="background:url(assets/img/bike_ggplot.png);">
-  <hgroup>
-    <h2>Not so usual plots and diagrams</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>London Cycle Hire and Pollution, made with R and ggplot</p>
+<p><img src="assets/img/bike_ggplot.png" width=600 height=500 ></a>
+<em>see the post in <a href="http://spatialanalysis.co.uk/2012/02/london-cycle-hire-pollution/">spatialy</a></em> </p>
 
-<p><em>see the post in <a href="http://spatialanalysis.co.uk/2012/02/london-cycle-hire-pollution/">spatialy</a></em> </p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-12" style="background:#E6E6FA;">
-  <hgroup>
-    <h2>Today&#39;s visualizations</h2>
-  </hgroup>
-  <article data-timings="">
-    <h3>To visualize</h3>
+<h2>Today&#39;s visualizations</h2>
+<h3>To visualize</h3>
 
 <ul class = "build incremental">
 <li>large data </li>
@@ -289,32 +210,14 @@ p2 &lt;- p1 + c.scale
 <li>3D</li>
 </ul>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
 
-<slide class="" id="slide-13" style="background:;">
-  <article data-timings="">
-    <p><center><a href="https://github.com/mbostock/d3/wiki/Gallery"><img src="assets/img/newplots_1.png" ></a></center></p>
+<p><center><a href="https://github.com/mbostock/d3/wiki/Gallery"><img src="assets/img/newplots_1.png" ></a></center></p>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
 
-<slide class="" id="slide-14" style="background:;">
-  <article data-timings="">
-    <p><center><a href="https://github.com/mbostock/d3/wiki/Gallery"><img src="assets/img/newplots_2.png" ></a></center></p>
+<p><center><a href="https://github.com/mbostock/d3/wiki/Gallery"><img src="assets/img/newplots_2.png" ></a></center></p>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-15" style="background:#E6E6FA;">
-  <hgroup>
-    <h2>But, How To in R !!??</h2>
-  </hgroup>
-  <article data-timings="">
-    <p><strong>R</strong> is a great tool to make modern visualizations. </p>
+<h2>But, How To in R !!??</h2>
+<p><strong>R</strong> is a great tool to make modern visualizations. </p>
 
 <p>Due to its growing enthusiastic community, many packages and tutorials have been made to visualize data. </p>
 
@@ -328,39 +231,15 @@ confidence interval. It also contains some algorithms to do matrix reordering.</
 <li><a href="http://decastillo.github.io/googleVis_Tutorial/">GoogleVis</a></li>
 </ul>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-16" style="background:#E6E6FA;">
-  <hgroup>
-    <h2>R , d3.js HTML5 and javascript</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>To diplay and run the visualizations, one common procedure is use <code>HTML5</code> and <code>javascript</code>, to allow web access and manipulation. </p>
+<h2>R , d3.js HTML5 and javascript</h2>
+<p>To diplay and run the visualizations, one common procedure is use <code>HTML5</code> and <code>javascript</code>, to allow web access and manipulation. </p>
 
 <p>Combination of <code>rCharts</code>, <code>googleVis</code>, <code>ggplot2</code> , <code>d3.js</code> and custom programming will transform R in one of the best platforms to make <code>complex-interactive-animated</code> visualizations. </p>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+<h2>EXAMPLES</h2>
 
-<slide class="segue" id="slide-17" style="background:indigo;">
-  <hgroup>
-    <h2>EXAMPLES</h2>
-  </hgroup>
-  <article data-timings="">
-    
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-18" style="background:#FFFFCC;">
-  <hgroup>
-    <h2>Time plots, zooms....</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>Let us code an interactive graph: </p>
+<h2>Time plots, zooms....</h2>
+<p>Let us code an interactive graph: </p>
 
 <pre><code class="r">require(rCharts)
 load(&quot;data/time_data&quot;)
@@ -381,16 +260,8 @@ n1$x2Axis(
 n1$set( width = 700, height = 500)
 </code></pre>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-19" style="background:;">
-  <hgroup>
-    <h2>Time plot of movements of screened women</h2>
-  </hgroup>
-  <article data-timings="">
-    <div id = 'chart_time' class = 'rChart nvd3'></div>
+<h2>Time plot of movements of screened women</h2>
+<div id = 'chart_time' class = 'rChart nvd3'></div>
 
 <script type='text/javascript'>
  $(document).ready(function(){
@@ -8995,16 +8866,8 @@ n1$set( width = 700, height = 500)
     };
 </script>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-20" style="background:;">
-  <hgroup>
-    <h2>Sankey Diagrams  :</h2>
-  </hgroup>
-  <article data-timings="">
-    <pre><code class="r">set.seed(12)
+<h2>Sankey Diagrams  :</h2>
+<pre><code class="r">set.seed(12)
 require(igraph)
 require(rCharts)
 g &lt;- graph.tree(40, children = 4)
@@ -9027,20 +8890,15 @@ sanPlot$set(
 )
 </code></pre>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
 
-<slide class="" id="slide-21" style="background:;">
-  <article data-timings="">
-    <div id = 'chart18d852e130f3' class = 'rChart d3_sankey'></div>
+<div id = 'chart58cb5d554c' class = 'rChart d3_sankey'></div>
 
 <p>﻿<div class="ed"> </div></p>
 
 <script>
 (function(){
 var params = {
- "dom": "chart18d852e130f3",
+ "dom": "chart58cb5d554c",
 "width":    960,
 "height":    500,
 "data": {
@@ -9051,7 +8909,7 @@ var params = {
 "nodeWidth":     15,
 "nodePadding":     10,
 "layout":     32,
-"id": "chart18d852e130f3" 
+"id": "chart58cb5d554c" 
 };
 
 params.units ? units = " " + params.units : units = "";
@@ -9168,16 +9026,8 @@ node.append("text")
 })();
 </script>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-22" style="background:;">
-  <hgroup>
-    <h2>Hicharts</h2>
-  </hgroup>
-  <article data-timings="">
-    <pre><code class="r">load(&quot;data/tabcancer&quot;)
+<h2>Hicharts</h2>
+<pre><code class="r">load(&quot;data/tabcancer&quot;)
 tcancer &lt;- as.data.frame(tabcancer)
 l.r2007  &lt;- c(&quot;Hovedstaden&quot;, &quot;Sjelland&quot;,&quot;Syddanmark&quot;, &quot;Midtjylland&quot;, &quot;Nordjylland&quot;)
 names(tcancer) &lt;- c(&quot;year&quot;,&quot;region&quot;, &quot;N&quot;, &quot;time&quot;)
@@ -9189,13 +9039,8 @@ a &lt;- hPlot(N ~ year, data = tcancer, type = &quot;bubble&quot;,
 a$chart(zoomType = &quot;xy&quot;)
 </code></pre>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
 
-<slide class="" id="slide-23" style="background:;">
-  <article data-timings="">
-    <div id = 'hichart1' class = 'rChart highcharts'></div>
+<div id = 'hichart1' class = 'rChart highcharts'></div>
 
 <script type='text/javascript'>
     (function($){
@@ -11928,47 +11773,23 @@ a$chart(zoomType = &quot;xy&quot;)
     })(jQuery);
 </script>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+<h2>d3.js EXAMPLES</h2>
 
-<slide class="" id="slide-24" style="background:indigo;">
-  <hgroup>
-    <h2>d3.js EXAMPLES</h2>
-  </hgroup>
-  <article data-timings="">
-    
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-25" style="background:;">
-  <hgroup>
-    <h2>d3.js examples</h2>
-  </hgroup>
-  <article data-timings="">
-    <h3>Made with R code and d3.js examples</h3>
+<h2>d3.js examples</h2>
+<h3>Made with R code and d3.js examples</h3>
 
 <p>Database: Sample of Cervical Screening Database (Denmark). </p>
 
 <ul>
-<li><a href="../d3s//bubble.html">ZOOMABLE BUBBLE</a></li>
-<li><a href="../d3s/bubble_no_prop.html">ZOOMABLE BUBBLE NO SIZES</a></li>
-<li><a href="../d3s/tree_layout.html">INTERACTIVE TREE LAYOUT</a></li>
-<li><a href="../d3s/treemap.html">ZOOMABLE TREE MAP</a></li>
-<li><a href="../d3s/treemap_noprop.html">ZOOMABLE TREE MAP, NO SIZES</a></li>
+<li><a href="d3s//bubble.html">ZOOMABLE BUBBLE</a></li>
+<li><a href="d3s/bubble_no_prop.html">ZOOMABLE BUBBLE NO SIZES</a></li>
+<li><a href="d3s/tree_layout.html">INTERACTIVE TREE LAYOUT</a></li>
+<li><a href="d3s/treemap.html">ZOOMABLE TREE MAP</a></li>
+<li><a href="d3s/treemap_noprop.html">ZOOMABLE TREE MAP, NO SIZES</a></li>
 </ul>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-26" style="background:;">
-  <hgroup>
-    <h2>LINKS</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>General: </p>
+<h2>LINKS</h2>
+<p>General: </p>
 
 <ul>
 <li><a href="http://www.r-bloggers.com/showing-results-from-cox-proportional-hazard-models-in-r-with-simph/">Showing results from Cox Proportional Hazard Models in R with simPH</a></li>
@@ -11980,13 +11801,8 @@ a$chart(zoomType = &quot;xy&quot;)
 <li><p><a href="https://public.opencpu.org/">openCPU</a>. Scientific computing in the cloud. <em>For anyone, anywhere</em>.</p></li>
 </ul>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
 
-<slide class="" id="slide-27" style="background:;">
-  <article data-timings="">
-    <p>##LINKS</p>
+<p>##LINKS</p>
 
 <p>Videos: </p>
 
@@ -12000,16 +11816,8 @@ a$chart(zoomType = &quot;xy&quot;)
 <li><a href="http://weitaiyun.blogspot.dk/"><strong>Taiyun Wei</strong>. <em>About my work and thoughts</em></a></li>
 </ul>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-28" style="background:;">
-  <hgroup>
-    <h2>LINKS</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>R </p>
+<h2>LINKS</h2>
+<p>R </p>
 
 <ul>
 <li><a href="http://timelyportfolio.github.io/gridSVG_intro/">R Interactive Graphics with SVG</a></li>
@@ -12018,16 +11826,8 @@ a$chart(zoomType = &quot;xy&quot;)
 <li><a href="http://rcharts.io/gallery/">rCharts Gallery</a></li>
 </ul>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-29" style="background:;">
-  <hgroup>
-    <h2>LINKS</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>R packages : </p>
+<h2>LINKS</h2>
+<p>R packages : </p>
 
 <ul>
 <li><a href="http://slidify.org">slidify</a> is an extremly powerful tool to convert any <strong>Rmd</strong> (R markdown) document to a beautiful and custom html5 presentation. This presentation is done with it. <a href="http://ramnathv.github.io/slidifyExamples/">slidify examples</a></li>
@@ -12038,16 +11838,8 @@ confidence interval. It also contains some algorithms to do matrix reordering.</
 <li><a href="http://decastillo.github.io/googleVis_Tutorial/#1">GoogleVis tutorial</a></li>
 </ul>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-30" style="background:;">
-  <hgroup>
-    <h2>LINKS</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>D3 : </p>
+<h2>LINKS</h2>
+<p>D3 : </p>
 
 <ul>
 <li><a href="https://github.com/mbostock/d3/wiki/Gallery">D3 gallery</a></li>
@@ -12056,202 +11848,12 @@ confidence interval. It also contains some algorithms to do matrix reordering.</
 <li><a href="http://biovisualize.github.io/d3visualization/">D3.js Gallery</a></li>
 </ul>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-    <slide class="backdrop"></slide>
-  </slides>
-  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
-    <ul>
-      <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title=''>
-         1
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Why display data'>
-         2
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='The usual suspects'>
-         3
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='GGPLOT 2'>
-         4
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title=''>
-         5
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=6 title=''>
-         6
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=7 title='The usual suspects and more in R : ggplot2'>
-         7
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=8 title='Denmark, cancer cases per region.'>
-         8
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=9 title='More ggplot2 : heat map example'>
-         9
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=10 title=''>
-         10
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=11 title='Not so usual plots and diagrams'>
-         11
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=12 title='Today&#39;s visualizations'>
-         12
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=13 title=''>
-         13
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=14 title=''>
-         14
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=15 title='But, How To in R !!??'>
-         15
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=16 title='R , d3.js HTML5 and javascript'>
-         16
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=17 title='EXAMPLES'>
-         17
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=18 title='Time plots, zooms....'>
-         18
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=19 title='Time plot of movements of screened women'>
-         19
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=20 title='Sankey Diagrams  :'>
-         20
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=21 title=''>
-         21
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=22 title='Hicharts'>
-         22
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=23 title=''>
-         23
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=24 title='d3.js EXAMPLES'>
-         24
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=25 title='d3.js examples'>
-         25
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=26 title='LINKS'>
-         26
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=27 title=''>
-         27
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=28 title='LINKS'>
-         28
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=29 title='LINKS'>
-         29
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=30 title='LINKS'>
-         30
-      </a>
-    </li>
-  </ul>
-  </div>  <!--[if IE]>
-    <script 
-      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
-    </script>
-    <script>CFInstall.check({mode: 'overlay'});</script>
-  <![endif]-->
+    </div>
+        
 </body>
+  <script src="libraries/frameworks/bootstrap/js/vendor/bootstrap.min.js"></script>
+  <script src="libraries/frameworks/bootstrap/js/plugins.js"></script>
+  <script src="libraries/frameworks/bootstrap/js/main.js"></script>
   <!-- Load Javascripts for Widgets -->
   
   <script src='libraries/widgets/nvd3/js/d3.v2.js'></script>

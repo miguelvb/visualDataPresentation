@@ -1,268 +1,257 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Visualize Data in R</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
-  <link rel="icon" type="image/png" href="favicon.ico">
-  <style>
-  body {
-    padding-top: 60px;
-    padding-bottom: 40px;
-  }
-  </style>
-  
-<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-responsive.no-icons.min.css" rel="stylesheet">
-<!-- <link rel="stylesheet" href="/css/bootstrap.min.css"> -->
-<link  rel="stylesheet" 
-    href="http://netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css">
-  <link rel="stylesheet" href="libraries/frameworks/bootstrap/css/bootstrap-responsive.min.css">
-  
-  <link rel="stylesheet" href="libraries/frameworks/bootstrap/css/main.css">
-  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/github.css" />
-  <script src="libraries/frameworks/bootstrap/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="libraries/frameworks/bootstrap/js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
-    <link rel=stylesheet href="libraries/widgets/morris/css/morris.css"></link>
-<link rel=stylesheet href="libraries/widgets/nvd3/css/nv.d3.css"></link>
-<link rel=stylesheet href="libraries/widgets/leaflet/external/leaflet.css"></link>
-<link rel=stylesheet href="libraries/widgets/leaflet/external/leaflet-rCharts.css"></link>
-<link rel=stylesheet href="libraries/widgets/leaflet/external/legend.css"></link>
-<link rel=stylesheet href="libraries/widgets/rickshaw/css/rickshaw.min.css"></link>
-<link rel=stylesheet href="libraries/widgets/rickshaw/css/jquery-ui.css"></link>
-<link rel=stylesheet href="libraries/widgets/rickshaw/css/rickshaw-rcharts.css"></link>
-<link rel=stylesheet href="libraries/widgets/d3_sankey/css/sankey.css"></link>
-<link rel=stylesheet href="./assets/css/mainapp.css"></link>
-<link rel=stylesheet href="./assets/css/ribbons.css"></link>
-<link rel=stylesheet href="./assets/css/style.css"></link>
+---
+title: Visualize Data in R 
+subtitle: graph types and interactivity to explore data 
+author: Miguel Vazquez-Prada Baillet , miguelvb[at]yahoo.com
+job: Centre for Epidemiology and Screening , KU 
+framework:  io2012 #leapday minimal bootstrap io2012
+mode: selfcontained
+ext_widgets: {rCharts: ["libraries/morris","libraries/nvd3", "libraries/polycharts", "libraries/highcharts" , "libraries/leaflet", "libraries/rickshaw", "libraries/d3_sankey" ]}
+highlighter: highlight.js #highlight.js
+hitheme: github #twitter-bootstrap
+github: {user: miguelvb, repo: visualDataPresentation, branch: "gh-pages"}
 
-  <script src="libraries/widgets/morris/js/jquery.min.js"></script>
-<script src="libraries/widgets/morris/js/raphael-2.1.0.min.js"></script>
-<script src="libraries/widgets/morris/js/morris.min.js"></script>
-<script src="libraries/widgets/nvd3/js/d3.v2.min.js"></script>
-<script src="libraries/widgets/nvd3/js/nv.d3.min.js"></script>
-<script src="libraries/widgets/polycharts/js/polychart2.standalone.js"></script>
-<script src="libraries/widgets/highcharts/js/highcharts.js"></script>
-<script src="libraries/widgets/highcharts/js/highcharts-more.js"></script>
-<script src="libraries/widgets/leaflet/external/leaflet.js"></script>
-<script src="libraries/widgets/leaflet/external/leaflet-providers.js"></script>
-<script src="libraries/widgets/leaflet/external/Control.FullScreen.js"></script>
-<script src="libraries/widgets/rickshaw/js/rickshaw.min.js"></script>
-<script src="libraries/widgets/rickshaw/js/jquery-ui.min.js"></script>
-<script src="libraries/widgets/d3_sankey/js/sankey.js"></script>
+--- bg:#FFFFCC
 
-</head>
-<body>
-   <!--[if lt IE 7]>
-     <p class="chromeframe">You are using an outdated browser. 
-       <a href="http://browsehappy.com/">Upgrade your browser today</a> or 
-       <a href="http://www.google.com/chromeframe/?redirect=true"> 
-         install Google Chrome Frame
-       </a> to better experience this site.
-    </p>
-   <![endif]-->
-   <!-- Ref: http://twitter.github.com/bootstrap/examples/hero.html -->
-   
-    <div class="container">
-      
 <style>
 
 </style>
 
-<p><a href="https://github.com/miguelvb/visualDataPresentation"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a></p>
-
-<h2>Visualize Data</h2>
-
-<p><br/></p>
-
-<blockquote>
-<p><strong>See it</strong> , that is the question...   </p>
-</blockquote>
-
-<p>Being able to &quot;see&quot; our data is one of the best techniques we can have to understand, communicate and analize them.<br>
-<br/><br/></p>
-
-<p><strong>R</strong> gives the opportunity to create many graphical representations.      </p>
-
-<p><br/></p>
-
-<p>In the last years there has been a <em>revolution</em> in data visualization, that bring new possibilities to display and interact with data. </p>
-
-<h2>Why display data</h2>
-<p><br/></p>
-
-<ol class = "build incremental">
-<li>To communicate. </li>
-<li>To explore. </li>
-<li>To analyze. </li>
-<li>To discover. </li>
-</ol>
-
-<h3>The usual suspects</h3>
-<p><center> <img src="figures/plots.png" alt="types of plots"> </center></p>
-
-<h2>GGPLOT 2</h2>
-<blockquote>
-<p>The ggplot2 package, created by Hadley Wickham, offers a powerful graphics language for creating elegant and complex plots. 
-It is unlike most other graphics packages because it has a deep underlying grammar.</p>
-</blockquote>
+<a href="https://github.com/miguelvb/visualDataPresentation"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 
 
-<p>Example:<br>
-<strong>Proportion of Danish women aged 50-69 years invited to mammography screening</strong></p>
 
-<pre><code class="r">x &lt;- data.frame( years = factor(1990:2010, levels = 1990:2010) ,
+
+## Visualize Data 
+
+<br/>
+
+> **See it** , that is the question...   
+
+
+Being able to "see" our data is one of the best techniques we can have to understand, communicate and analize them.   
+<br/><br/>
+
+**R** gives the opportunity to create many graphical representations.      
+
+<br/>
+
+In the last years there has been a *revolution* in data visualization, that bring new possibilities to display and interact with data. 
+
+--- bg:#FFFFCC
+## Why display data 
+
+<br/>
+
+> 1. To communicate. 
+> 2. To explore. 
+> 3. To analyze. 
+> 4. To discover. 
+
+
+---
+### The usual suspects
+
+<center> ![types of plots](figures/plots.png) </center>
+
+--- bg:#FFFFCC
+
+## GGPLOT 2 
+
+> The ggplot2 package, created by Hadley Wickham, offers a powerful graphics language for creating elegant and complex plots. 
+> It is unlike most other graphics packages because it has a deep underlying grammar.
+
+---
+
+Example:  
+**Proportion of Danish women aged 50-69 years invited to mammography screening**
+
+
+```r
+x <- data.frame( years = factor(1990:2010, levels = 1990:2010) ,
                  percent = c(0,4,8,8,14,rep(18,9), 23,24,18,19,48,89,100));
-txt.perc &lt;- function(x, d){ paste( format ( x, digits = 1, nsmall = d), &quot;%&quot;, sep = &quot;&quot;) }
-titl &lt;-&#39;Proportion of Danish women aged 50-69 years \ninvited to mammography screening&#39;; 
+txt.perc <- function(x, d){ paste( format ( x, digits = 1, nsmall = d), "%", sep = "") }
+titl <-'Proportion of Danish women aged 50-69 years \ninvited to mammography screening'; 
 
-pl &lt;- ggplot(x,aes(x=years, y=percent, fill = percent)) +    
-
-  geom_bar( width =0.9) +  ylab(&#39;percent&#39;) + xlab(&#39;&#39;) +    
-
+pl <- ggplot(x,aes(x=years, y=percent, fill = percent)) +    
+  
+  geom_bar( width =0.9) +  ylab('percent') + xlab('') +    
+  
   geom_text(data=x,aes(x=years,y=percent,label=txt.perc(percent, 0)),vjust=-0.5, size = 4) +    
-
+  
   geom_text(aes(x=nrow(x)/2,y=90,label= titl),vjust=-0.5) +   
-
+  
   theme_bw() +
-
+  
   scale_y_continuous( breaks=seq(0, 100, 5)  , limits = c(0, 110), expand = c(0,0) ) + 
-
+  
   theme( 
     axis.text.x= element_text( size= 12 ) , 
-    legend.position = &quot;none&quot; ,
-    panel.margin = unit(0,&quot;null&quot;)  
+    legend.position = "none" ,
+    panel.margin = unit(0,"null")  
   ) 
-</code></pre>
+```
+
+---
+
+<center><img src="figures/percent.mammogrphy.png" ></center>
+
+---
+
+## The usual suspects and more in R : ggplot2 
+
+Map example : 
 
 
-<p><center><img src="figures/percent.mammogrphy.png" ></center></p>
-
-<h2>The usual suspects and more in R : ggplot2</h2>
-<p>Map example : </p>
-
-<pre><code class="r">m0 &lt;- ggplot(data=MapDf)
-m1 &lt;- m0 + 
-      geom_path(aes(x=long, y=lat, group=group), color=&#39;gray&#39;) + 
+```r
+m0 <- ggplot(data=MapDf)
+m1 <- m0 + 
+      geom_path(aes(x=long, y=lat, group=group), color='gray') + 
       coord_equal() + 
       xlim(8,13) + 
-      labs( title = &quot;Cancer Diagnoses in Denmark&quot;)
+      labs( title = "Cancer Diagnoses in Denmark")
 
-m2 &lt;- m1 +  
+m2 <- m1 +  
       geom_polygon(   aes(x=long, y=lat, group=group, fill=id), alpha = 0.5   ) 
 
-map &lt;- m2 + 
+map <- m2 + 
        geom_text(data = centroids, x=centroids$long, y=centroids$lat, label = centroids$label, size = 2) +
-       coord_map(project=&quot;globular&quot;) + 
-       theme(legend.position = &quot;none&quot;) 
+       coord_map(project="globular") + 
+       theme(legend.position = "none") 
 map
-</code></pre>
+```
 
-<h4>Denmark, cancer cases per region.</h4>
-<p><img src="figures/denmark_cases_2.png" alt="types of plots"></p>
 
-<h2>More ggplot2 : heat map example</h2>
-<pre><code class="r"># Make the heatmap : 
-load(&quot;data/month_year&quot;)
-c.scale &lt;- scale_fill_gradient(low = &quot;white&quot;, 
-                                high = &quot;steelblue&quot;,
+--- 
+
+#### Denmark, cancer cases per region. 
+
+![types of plots](figures/denmark_cases_2.png)
+
+---
+
+## More ggplot2 : heat map example  
+
+
+```r
+# Make the heatmap : 
+load("data/month_year")
+c.scale <- scale_fill_gradient(low = "white", 
+                                high = "steelblue",
                                limits=c(min(month_year$freq),
                                         max(month_year$freq)))
-p1 &lt;- ggplot(month_year, aes(month, year)) + 
-  geom_tile(aes(fill = freq), color=&quot;white&quot;) 
-p2 &lt;- p1 + c.scale
-</code></pre>
+p1 <- ggplot(month_year, aes(month, year)) + 
+  geom_tile(aes(fill = freq), color="white") 
+p2 <- p1 + c.scale
+```
 
 
-<pre><code class="r">p2
-</code></pre>
+--- 
 
-<p><img src="assets/fig/ggplot3.png" alt="plot of chunk ggplot3"> </p>
+```r
+p2
+```
 
-<h2>Not so usual plots and diagrams</h2>
-<p>London Cycle Hire and Pollution, made with R and ggplot</p>
-
-<p><img src="assets/img/bike_ggplot.png" width=600 height=500 ></a>
-<em>see the post in <a href="http://spatialanalysis.co.uk/2012/02/london-cycle-hire-pollution/">spatialy</a></em> </p>
-
-<h2>Today&#39;s visualizations</h2>
-<h3>To visualize</h3>
-
-<ul class = "build incremental">
-<li>large data </li>
-<li>complex data </li>
-<li>interactions</li>
-<li>data explorations </li>
-</ul>
-
-<h3>We use :</h3>
-
-<ul class = "build incremental">
-<li>new plots, diagrams, etc. </li>
-<li>interactivity </li>
-<li>real-time graphing</li>
-<li>animations </li>
-<li>3D</li>
-</ul>
+![plot of chunk ggplot3](assets/fig/ggplot3.png) 
 
 
-<p><center><a href="https://github.com/mbostock/d3/wiki/Gallery"><img src="assets/img/newplots_1.png" ></a></center></p>
+
+--- .notso bg:url(assets/img/bike_ggplot.png)
+
+## Not so usual plots and diagrams 
+
+London Cycle Hire and Pollution, made with R and ggplot
+
+*see the post in [spatialy](http://spatialanalysis.co.uk/2012/02/london-cycle-hire-pollution/)* 
+
+--- bg:#E6E6FA
+
+## Today's visualizations 
+
+### To visualize 
+
+> * large data 
+> * complex data 
+> * interactions
+> * data explorations 
+
+### We use : 
+
+> * new plots, diagrams, etc. 
+> * interactivity 
+> * real-time graphing
+> * animations 
+> * 3D
+
+---
+
+<center><a href="https://github.com/mbostock/d3/wiki/Gallery"><img src="assets/img/newplots_1.png" ></a></center>
+
+---
+
+<center><a href="https://github.com/mbostock/d3/wiki/Gallery"><img src="assets/img/newplots_2.png" ></a></center>
 
 
-<p><center><a href="https://github.com/mbostock/d3/wiki/Gallery"><img src="assets/img/newplots_2.png" ></a></center></p>
+--- bg:#E6E6FA
 
-<h2>But, How To in R !!??</h2>
-<p><strong>R</strong> is a great tool to make modern visualizations. </p>
+## But, How To in R !!?? 
 
-<p>Due to its growing enthusiastic community, many packages and tutorials have been made to visualize data. </p>
+**R** is a great tool to make modern visualizations. 
 
-<p>Here, we will use mainly these packages : </p>
+Due to its growing enthusiastic community, many packages and tutorials have been made to visualize data. 
 
-<ul>
-<li><a href="http://slidify.org">slidify</a> is an extremly powerful tool to convert any <strong>Rmd</strong> (R markdown) document to a beautiful and custom html5 presentation. This presentation is done with it. <a href="http://ramnathv.github.io/slidifyExamples/">slidify examples</a></li>
-<li><a href="https://github.com/ramnathv/rCharts">rCharts</a>. rCharts is an R package to create, customize and publish interactive javascript visualizations from R using a familiar lattice style plotting interface.</li>
-<li><a href="https://github.com/taiyun/corrplot">Corrplot</a>. Package corrplot is for visualizing a correlation matrix and
-confidence interval. It also contains some algorithms to do matrix reordering.</li>
-<li><a href="http://decastillo.github.io/googleVis_Tutorial/">GoogleVis</a></li>
-</ul>
+Here, we will use mainly these packages : 
 
-<h2>R , d3.js HTML5 and javascript</h2>
-<p>To diplay and run the visualizations, one common procedure is use <code>HTML5</code> and <code>javascript</code>, to allow web access and manipulation. </p>
+* [slidify](http://slidify.org) is an extremly powerful tool to convert any **Rmd** (R markdown) document to a beautiful and custom html5 presentation. This presentation is done with it. [slidify examples](http://ramnathv.github.io/slidifyExamples/)
+* [rCharts](https://github.com/ramnathv/rCharts). rCharts is an R package to create, customize and publish interactive javascript visualizations from R using a familiar lattice style plotting interface.
+* [Corrplot](https://github.com/taiyun/corrplot). Package corrplot is for visualizing a correlation matrix and
+confidence interval. It also contains some algorithms to do matrix reordering.
+* [GoogleVis](http://decastillo.github.io/googleVis_Tutorial/)
 
-<p>Combination of <code>rCharts</code>, <code>googleVis</code>, <code>ggplot2</code> , <code>d3.js</code> and custom programming will transform R in one of the best platforms to make <code>complex-interactive-animated</code> visualizations. </p>
+--- bg:#E6E6FA
 
-<h2>EXAMPLES</h2>
+## R , d3.js HTML5 and javascript 
 
-<h2>Time plots, zooms....</h2>
-<p>Let us code an interactive graph: </p>
+To diplay and run the visualizations, one common procedure is use `HTML5` and `javascript`, to allow web access and manipulation. 
 
-<pre><code class="r">require(rCharts)
-load(&quot;data/time_data&quot;)
-n1 &lt;- nPlot(
+Combination of `rCharts`, `googleVis`, `ggplot2` , `d3.js` and custom programming will transform R in one of the best platforms to make `complex-interactive-animated` visualizations. 
+
+
+
+--- .segue bg:indigo
+## EXAMPLES 
+
+
+--- bg:#FFFFCC
+## Time plots, zooms....  
+
+Let us code an interactive graph: 
+
+
+```r
+require(rCharts)
+load("data/time_data")
+n1 <- nPlot(
   N~dateint,
   data =dtb ,
-  group = &quot;id&quot;,  # even though only one series need to specify group
-  type = &quot;lineWithFocusChart&quot;
+  group = "id",  # even though only one series need to specify group
+  type = "lineWithFocusChart"
 )
 n1$xAxis(
   tickFormat=
-    &quot;#!function(d) { return d3.time.format(&#39;%Y %b&#39;)(new Date( d )); }!#&quot;
+    "#!function(d) { return d3.time.format('%Y %b')(new Date( d )); }!#"
 )
 n1$x2Axis(
   tickFormat=
-    &quot;#!function(d) {return d3.time.format(&#39;%Y&#39;)(new Date( d ));}!#&quot;
+    "#!function(d) {return d3.time.format('%Y')(new Date( d ));}!#"
 )
 n1$set( width = 700, height = 500)
-</code></pre>
+```
 
-<h2>Time plot of movements of screened women</h2>
+---
+## Time plot of movements of screened women 
+
+
 <div id = 'chart_time' class = 'rChart nvd3'></div>
-
 <script type='text/javascript'>
  $(document).ready(function(){
       drawchart_time()
@@ -8866,20 +8855,25 @@ n1$set( width = 700, height = 500)
     };
 </script>
 
-<h2>Sankey Diagrams  :</h2>
-<pre><code class="r">set.seed(12)
+---
+
+## Sankey Diagrams  : 
+
+
+```r
+set.seed(12)
 require(igraph)
 require(rCharts)
-g &lt;- graph.tree(40, children = 4)
+g <- graph.tree(40, children = 4)
 
 E(g)$weight = 1
-edgelist &lt;- get.data.frame(g) #this will give us a data frame with from,to,weight
-colnames(edgelist) &lt;- c(&quot;source&quot;,&quot;target&quot;,&quot;value&quot;)
-edgelist$source &lt;- as.character(edgelist$source)
-edgelist$target &lt;- as.character(edgelist$target)
-sanPlot &lt;- rCharts$new()
-sanPlot$setLib(&#39;libraries/widgets/d3_sankey&#39;)
-sanPlot$setTemplate(script = &#39;libraries/widgets/d3_sankey/layouts/deff.html&#39;)
+edgelist <- get.data.frame(g) #this will give us a data frame with from,to,weight
+colnames(edgelist) <- c("source","target","value")
+edgelist$source <- as.character(edgelist$source)
+edgelist$target <- as.character(edgelist$target)
+sanPlot <- rCharts$new()
+sanPlot$setLib('libraries/widgets/d3_sankey')
+sanPlot$setTemplate(script = 'libraries/widgets/d3_sankey/layouts/deff.html')
 sanPlot$set(
   data = edgelist,
   nodeWidth = 15,
@@ -8888,17 +8882,19 @@ sanPlot$set(
   width = 960,
   height = 500
 )
-</code></pre>
+```
 
 
-<div id = 'chart18d81755642b' class = 'rChart d3_sankey'></div>
+---
 
-<p>﻿<div class="ed"> </div></p>
+
+<div id = 'chart58c1a53c1' class = 'rChart d3_sankey'></div>
+﻿<div class="ed"> </div>
 
 <script>
 (function(){
 var params = {
- "dom": "chart18d81755642b",
+ "dom": "chart58c1a53c1",
 "width":    960,
 "height":    500,
 "data": {
@@ -8909,7 +8905,7 @@ var params = {
 "nodeWidth":     15,
 "nodePadding":     10,
 "layout":     32,
-"id": "chart18d81755642b" 
+"id": "chart58c1a53c1" 
 };
 
 params.units ? units = " " + params.units : units = "";
@@ -9026,22 +9022,30 @@ node.append("text")
 })();
 </script>
 
-<h2>Hicharts</h2>
-<pre><code class="r">load(&quot;data/tabcancer&quot;)
-tcancer &lt;- as.data.frame(tabcancer)
-l.r2007  &lt;- c(&quot;Hovedstaden&quot;, &quot;Sjelland&quot;,&quot;Syddanmark&quot;, &quot;Midtjylland&quot;, &quot;Nordjylland&quot;)
-names(tcancer) &lt;- c(&quot;year&quot;,&quot;region&quot;, &quot;N&quot;, &quot;time&quot;)
-tcancer$region &lt;- factor(tcancer$region, 
+
+--- 
+
+## Hicharts 
+
+
+```r
+load("data/tabcancer")
+tcancer <- as.data.frame(tabcancer)
+l.r2007  <- c("Hovedstaden", "Sjelland","Syddanmark", "Midtjylland", "Nordjylland")
+names(tcancer) <- c("year","region", "N", "time")
+tcancer$region <- factor(tcancer$region, 
                          levels = levels(tcancer$region), labels = l.r2007 )
-a &lt;- hPlot(N ~ year, data = tcancer, type = &quot;bubble&quot;, 
-           title = &quot;Number of cancer cases by year and region (zoomable)&quot;,
-           subtitle = &quot;sampled data (2e6 from 24e6)&quot;, size = &quot;N&quot;, group = &quot;region&quot;)
-a$chart(zoomType = &quot;xy&quot;)
-</code></pre>
+a <- hPlot(N ~ year, data = tcancer, type = "bubble", 
+           title = "Number of cancer cases by year and region (zoomable)",
+           subtitle = "sampled data (2e6 from 24e6)", size = "N", group = "region")
+a$chart(zoomType = "xy")
+```
+
+
+---
 
 
 <div id = 'hichart1' class = 'rChart highcharts'></div>
-
 <script type='text/javascript'>
     (function($){
         $(function () {
@@ -11773,95 +11777,86 @@ a$chart(zoomType = &quot;xy&quot;)
     })(jQuery);
 </script>
 
-<h2>d3.js EXAMPLES</h2>
 
-<h2>d3.js examples</h2>
-<h3>Made with R code and d3.js examples</h3>
+--- . segue bg:indigo
 
-<p>Database: Sample of Cervical Screening Database (Denmark). </p>
+## d3.js EXAMPLES 
 
-<ul>
-<li><a href="../d3s//bubble.html">ZOOMABLE BUBBLE</a></li>
-<li><a href="../d3s/bubble_no_prop.html">ZOOMABLE BUBBLE NO SIZES</a></li>
-<li><a href="../d3s/tree_layout.html">INTERACTIVE TREE LAYOUT</a></li>
-<li><a href="../d3s/treemap.html">ZOOMABLE TREE MAP</a></li>
-<li><a href="../d3s/treemap_noprop.html">ZOOMABLE TREE MAP, NO SIZES</a></li>
-</ul>
+--- 
 
-<h2>LINKS</h2>
-<p>General: </p>
+## d3.js examples 
 
-<ul>
-<li><a href="http://www.r-bloggers.com/showing-results-from-cox-proportional-hazard-models-in-r-with-simph/">Showing results from Cox Proportional Hazard Models in R with simPH</a></li>
-<li><a href="http://www.cookbook-r.com/Graphs/">Graphs R CookBook</a></li>
-<li><a href="http://fellinlovewithdata.com/guides/how-do-you-visualize-too-much-data">How do you visualize too much data?</a></li>
-<li><a href="http://dl.dropboxusercontent.com/u/7586336/blogger/Cambridge_R_googleVis_with_knitr_and_RStudio_May_2012.html#%281%29">Interactive charts and slides with R, googleVis and knitr</a></li>
-<li><a href="http://glimmer.rstudio.com/vivekpatil/bb50citiesrank/">50 Best US Cities of 2012 </a>. Link to code <a href="https://github.com/patilv/bb50citiesrank">here</a></li>
-<li><p><a href="http://biovisualize.github.io/d3visualization/">ds3.js</a></p></li>
-<li><p><a href="https://public.opencpu.org/">openCPU</a>. Scientific computing in the cloud. <em>For anyone, anywhere</em>.</p></li>
-</ul>
+### Made with R code and d3.js examples 
+
+Database: Sample of Cervical Screening Database (Denmark). 
+
+* [ZOOMABLE BUBBLE] (../d3s//bubble.html)
+* [ZOOMABLE BUBBLE NO SIZES](../d3s/bubble_no_prop.html)
+* [INTERACTIVE TREE LAYOUT](../d3s/tree_layout.html)
+* [ZOOMABLE TREE MAP](../d3s/treemap.html)
+* [ZOOMABLE TREE MAP, NO SIZES](../d3s/treemap_noprop.html)
+
+---
+
+## LINKS  
+
+General: 
+
+* [Showing results from Cox Proportional Hazard Models in R with simPH](http://www.r-bloggers.com/showing-results-from-cox-proportional-hazard-models-in-r-with-simph/)
+* [Graphs R CookBook](http://www.cookbook-r.com/Graphs/)
+* [How do you visualize too much data?](http://fellinlovewithdata.com/guides/how-do-you-visualize-too-much-data)
+* [Interactive charts and slides with R, googleVis and knitr](http://dl.dropboxusercontent.com/u/7586336/blogger/Cambridge_R_googleVis_with_knitr_and_RStudio_May_2012.html#%281%29)
+* [50 Best US Cities of 2012 ](http://glimmer.rstudio.com/vivekpatil/bb50citiesrank/). Link to code [here](https://github.com/patilv/bb50citiesrank)
+* [ds3.js](http://biovisualize.github.io/d3visualization/)
+
+* [openCPU](https://public.opencpu.org/). Scientific computing in the cloud. *For anyone, anywhere*.
+
+---
+##LINKS
+
+Videos: 
+
+* [Drawing Dynamic Visualizations](http://vimeo.com/66085662)
+
+BLogs : 
+
+* [**Taiyun Wei**. *About my work and thoughts*](http://weitaiyun.blogspot.dk/)
+
+---
+
+## LINKS
+R 
+
+* [R Interactive Graphics with SVG](http://timelyportfolio.github.io/gridSVG_intro/)
+* [rCharts to d3-horizon] (http://timelyportfolio.github.io/rCharts_d3_horizon/#slide-1)
+* [rCharts](http://ramnathv.github.io/rCharts/)
+* [rCharts Gallery] (http://rcharts.io/gallery/)
+
+---
+## LINKS 
+
+R packages : 
+
+* [slidify](http://slidify.org) is an extremly powerful tool to convert any **Rmd** (R markdown) document to a beautiful and custom html5 presentation. This presentation is done with it. [slidify examples](http://ramnathv.github.io/slidifyExamples/)
+* [rCharts](https://github.com/ramnathv/rCharts). rCharts is an R package to create, customize and publish interactive javascript visualizations from R using a familiar lattice style plotting interface.
+* [iPlots](http://stats.math.uni-augsburg.de/iplots/). iPlots is a package which provides high interaction statistical graphics, written in Java.
+* [Corrplot](https://github.com/taiyun/corrplot). Package corrplot is for visualizing a correlation matrix and
+confidence interval. It also contains some algorithms to do matrix reordering.
+* [GoogleVis tutorial](http://decastillo.github.io/googleVis_Tutorial/#1)
+
+---
+## LINKS
+
+D3 : 
+
+* [D3 gallery](https://github.com/mbostock/d3/wiki/Gallery)
+* [D3.JS: DATA-DRIVEN DELIGHT](http://anna.ps/talks/fel/#/)
+* [D3 tutorials](http://alignedleft.com/tutorials/d3/)
+* [D3.js Gallery](http://biovisualize.github.io/d3visualization/)
 
 
-<p>##LINKS</p>
 
-<p>Videos: </p>
 
-<ul>
-<li><a href="http://vimeo.com/66085662">Drawing Dynamic Visualizations</a></li>
-</ul>
 
-<p>BLogs : </p>
 
-<ul>
-<li><a href="http://weitaiyun.blogspot.dk/"><strong>Taiyun Wei</strong>. <em>About my work and thoughts</em></a></li>
-</ul>
 
-<h2>LINKS</h2>
-<p>R </p>
-
-<ul>
-<li><a href="http://timelyportfolio.github.io/gridSVG_intro/">R Interactive Graphics with SVG</a></li>
-<li><a href="http://timelyportfolio.github.io/rCharts_d3_horizon/#slide-1">rCharts to d3-horizon</a></li>
-<li><a href="http://ramnathv.github.io/rCharts/">rCharts</a></li>
-<li><a href="http://rcharts.io/gallery/">rCharts Gallery</a></li>
-</ul>
-
-<h2>LINKS</h2>
-<p>R packages : </p>
-
-<ul>
-<li><a href="http://slidify.org">slidify</a> is an extremly powerful tool to convert any <strong>Rmd</strong> (R markdown) document to a beautiful and custom html5 presentation. This presentation is done with it. <a href="http://ramnathv.github.io/slidifyExamples/">slidify examples</a></li>
-<li><a href="https://github.com/ramnathv/rCharts">rCharts</a>. rCharts is an R package to create, customize and publish interactive javascript visualizations from R using a familiar lattice style plotting interface.</li>
-<li><a href="http://stats.math.uni-augsburg.de/iplots/">iPlots</a>. iPlots is a package which provides high interaction statistical graphics, written in Java.</li>
-<li><a href="https://github.com/taiyun/corrplot">Corrplot</a>. Package corrplot is for visualizing a correlation matrix and
-confidence interval. It also contains some algorithms to do matrix reordering.</li>
-<li><a href="http://decastillo.github.io/googleVis_Tutorial/#1">GoogleVis tutorial</a></li>
-</ul>
-
-<h2>LINKS</h2>
-<p>D3 : </p>
-
-<ul>
-<li><a href="https://github.com/mbostock/d3/wiki/Gallery">D3 gallery</a></li>
-<li><a href="http://anna.ps/talks/fel/#/">D3.JS: DATA-DRIVEN DELIGHT</a></li>
-<li><a href="http://alignedleft.com/tutorials/d3/">D3 tutorials</a></li>
-<li><a href="http://biovisualize.github.io/d3visualization/">D3.js Gallery</a></li>
-</ul>
-
-    </div>
-        
-</body>
-  <script src="libraries/frameworks/bootstrap/js/vendor/bootstrap.min.js"></script>
-  <script src="libraries/frameworks/bootstrap/js/plugins.js"></script>
-  <script src="libraries/frameworks/bootstrap/js/main.js"></script>
-  <!-- Load Javascripts for Widgets -->
-  
-  <script src='libraries/widgets/nvd3/js/d3.v2.js'></script>
-  <script src='libraries/widgets/nvd3/js/nv.d3.min.js'></script>
-  
-  <!-- LOAD HIGHLIGHTER JS FILES -->
-  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
-   
-  </html>
