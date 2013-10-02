@@ -1,0 +1,3 @@
+treemap:
+  css: css/treemap.css
+  jshead: [js/d3.layout.js, js/d3.js]

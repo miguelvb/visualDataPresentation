@@ -1,0 +1,52 @@
+.rChart {
+  width  : 960px;
+  height : 700px;
+}
+
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+pre { font-size: 16px;
+     line-height: 20px;
+     font-weight: 200;
+     letter-spacing: 0px;}
+
+blockquote {
+  padding: 0 0 0 15px;
+  margin: 0 0 20px;
+  border-left: 5px solid #eeeeee;
+}
+
+blockquote p {
+  margin-bottom: 0;
+  /*font-size: 16px;*/
+  font-weight: 300;
+  line-height: 25px;
+}
+
+blockquote small {
+  display: block;
+  line-height: 20px;
+  color: #999999;
+}
+
+blockquote small:before {
+  content: '\2014 \00A0';
+}
+
+hgroup h3, hgroup h4 {
+  margin-left:auto;
+  margin-right:auto;  
+  width:50%;
+}
+
+.notso > hgroup > h2 , .notso > article  p , .notso > article  small
+{ 
+  color: #f6c000;  
+}
