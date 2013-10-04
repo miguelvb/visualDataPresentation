@@ -19,9 +19,6 @@ github: {user: miguelvb, repo: visualDataPresentation, branch: "gh-pages"}
 <a href="https://github.com/miguelvb/visualDataPresentation"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 
 
-```
-## Warning: there is no package called 'ffbase'
-```
 
 
 ## Visualize Data 
@@ -8891,13 +8888,13 @@ sanPlot$set(
 ---
 
 
-<div id = 'chart1c521070a640' class = 'rChart d3_sankey'></div>
+<div id = 'chart24ca67495f91' class = 'rChart d3_sankey'></div>
 ﻿<div class="ed"> </div>
 
 <script>
 (function(){
 var params = {
- "dom": "chart1c521070a640",
+ "dom": "chart24ca67495f91",
 "width":    960,
 "height":    500,
 "data": {
@@ -8908,7 +8905,7 @@ var params = {
 "nodeWidth":     15,
 "nodePadding":     10,
 "layout":     32,
-"id": "chart1c521070a640" 
+"id": "chart24ca67495f91" 
 };
 
 params.units ? units = " " + params.units : units = "";
@@ -9040,8 +9037,9 @@ tcancer$region <- factor(tcancer$region,
                          levels = levels(tcancer$region), labels = l.r2007 )
 a <- hPlot(N ~ year, data = tcancer, type = "bubble", 
            title = "Number of cancer cases by year and region (zoomable)",
-           subtitle = "sampled data (2e6 from 24e6)", size = "N", group = "region")
+           subtitle = "sampled data (2e6 from 24e6)", size = "N", group = "region", height = 600, width = 400)
 a$chart(zoomType = "xy")
+a$set(height = 600, width = 400)
 ```
 
 
@@ -9054,8 +9052,8 @@ a$chart(zoomType = "xy")
         $(function () {
             var chart = new Highcharts.Chart({
  "dom": "hichart1",
-"width":    800,
-"height":    400,
+"width":    400,
+"height":    600,
 "credits": {
  "href": null,
 "text": null 

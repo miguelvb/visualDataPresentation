@@ -1,7 +1,15 @@
+#hichart1.rChart {
+  width  : 800px;
+  height : 600px;
+}
+
+
 .rChart {
   width  : 960px;
   height : 700px;
 }
+
+
 
 
 strong {

@@ -77,8 +77,6 @@
 
 <p><a href="https://github.com/miguelvb/visualDataPresentation"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a></p>
 
-
-
 <h2>Visualize Data</h2>
 
 <p><br/></p>
@@ -136,7 +134,7 @@
   <article data-timings="">
     <blockquote>
 <p>The ggplot2 package, created by Hadley Wickham, offers a powerful graphics language for creating elegant and complex plots. 
-It is unlike most other graphics packages because it has a deep underlying grammar</p>
+It is unlike most other graphics packages because it has a deep underlying grammar.</p>
 </blockquote>
 
   </article>
@@ -9035,14 +9033,14 @@ sanPlot$set(
 
 <slide class="" id="slide-21" style="background:;">
   <article data-timings="">
-    <div id = 'chart1c521070a640' class = 'rChart d3_sankey'></div>
+    <div id = 'chart24ca67495f91' class = 'rChart d3_sankey'></div>
 
 <p>﻿<div class="ed"> </div></p>
 
 <script>
 (function(){
 var params = {
- "dom": "chart1c521070a640",
+ "dom": "chart24ca67495f91",
 "width":    960,
 "height":    500,
 "data": {
@@ -9053,7 +9051,7 @@ var params = {
 "nodeWidth":     15,
 "nodePadding":     10,
 "layout":     32,
-"id": "chart1c521070a640" 
+"id": "chart24ca67495f91" 
 };
 
 params.units ? units = " " + params.units : units = "";
@@ -9187,8 +9185,9 @@ tcancer$region &lt;- factor(tcancer$region,
                          levels = levels(tcancer$region), labels = l.r2007 )
 a &lt;- hPlot(N ~ year, data = tcancer, type = &quot;bubble&quot;, 
            title = &quot;Number of cancer cases by year and region (zoomable)&quot;,
-           subtitle = &quot;sampled data (2e6 from 24e6)&quot;, size = &quot;N&quot;, group = &quot;region&quot;)
+           subtitle = &quot;sampled data (2e6 from 24e6)&quot;, size = &quot;N&quot;, group = &quot;region&quot;, height = 600, width = 400)
 a$chart(zoomType = &quot;xy&quot;)
+a$set(height = 600, width = 400)
 </code></pre>
 
   </article>
@@ -9204,8 +9203,8 @@ a$chart(zoomType = &quot;xy&quot;)
         $(function () {
             var chart = new Highcharts.Chart({
  "dom": "hichart1",
-"width":    800,
-"height":    400,
+"width":    400,
+"height":    600,
 "credits": {
  "href": null,
 "text": null 
