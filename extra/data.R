@@ -1,6 +1,6 @@
 library(slidify)
 
-slidify("index_io2012.Rmd")
+slidify("index.Rmd")
 
 
 require(ffbase)
