@@ -317,11 +317,11 @@ a$print('hichart1')
 
 Database: Sample of Cervical Screening Database (Denmark). 
 
-* [ZOOMABLE BUBBLE] (../visualDataPresentation/d3s/bubble.html)
-* [ZOOMABLE BUBBLE NO SIZES](../visualDataPresentation/d3s/bubble_no_prop.html)
-* [INTERACTIVE TREE LAYOUT](../visualDataPresentation/d3s/tree_layout.html)
-* [ZOOMABLE TREE MAP](../visualDataPresentation/d3s/treemap.html)
-* [ZOOMABLE TREE MAP, NO SIZES](../visualDataPresentation/d3s/treemap_noprop.html)
+* [ZOOMABLE BUBBLE] (http://miguelvb.github.io/visualDataPresentation/d3s/bubble.html)
+* [ZOOMABLE BUBBLE NO SIZES](http://miguelvb.github.io/visualDataPresentation/d3s/bubble_no_prop.html)
+* [INTERACTIVE TREE LAYOUT](http://miguelvb.github.io/visualDataPresentation/d3s/tree_layout.html)
+* [ZOOMABLE TREE MAP](http://miguelvb.github.io/visualDataPresentation/d3s/treemap.html)
+* [ZOOMABLE TREE MAP, NO SIZES](http://miguelvb.github.io/visualDataPresentation/d3s/treemap_noprop.html)
 
 ---
 
