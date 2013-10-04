@@ -19,6 +19,9 @@ github: {user: miguelvb, repo: visualDataPresentation, branch: "gh-pages"}
 <a href="https://github.com/miguelvb/visualDataPresentation"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 
 
+```
+## Warning: there is no package called 'ffbase'
+```
 
 
 ## Visualize Data 
@@ -8888,13 +8891,13 @@ sanPlot$set(
 ---
 
 
-<div id = 'chart58c1a53c1' class = 'rChart d3_sankey'></div>
+<div id = 'chart1c521070a640' class = 'rChart d3_sankey'></div>
 ﻿<div class="ed"> </div>
 
 <script>
 (function(){
 var params = {
- "dom": "chart58c1a53c1",
+ "dom": "chart1c521070a640",
 "width":    960,
 "height":    500,
 "data": {
@@ -8905,7 +8908,7 @@ var params = {
 "nodeWidth":     15,
 "nodePadding":     10,
 "layout":     32,
-"id": "chart58c1a53c1" 
+"id": "chart1c521070a640" 
 };
 
 params.units ? units = " " + params.units : units = "";
@@ -11790,11 +11793,11 @@ a$chart(zoomType = "xy")
 
 Database: Sample of Cervical Screening Database (Denmark). 
 
-* [ZOOMABLE BUBBLE] (../d3s//bubble.html)
-* [ZOOMABLE BUBBLE NO SIZES](../d3s/bubble_no_prop.html)
-* [INTERACTIVE TREE LAYOUT](../d3s/tree_layout.html)
-* [ZOOMABLE TREE MAP](../d3s/treemap.html)
-* [ZOOMABLE TREE MAP, NO SIZES](../d3s/treemap_noprop.html)
+* [ZOOMABLE BUBBLE] (http://miguelvb.github.io/visualDataPresentation/d3s/bubble.html)
+* [ZOOMABLE BUBBLE NO SIZES](http://miguelvb.github.io/visualDataPresentation/d3s/bubble_no_prop.html)
+* [INTERACTIVE TREE LAYOUT](http://miguelvb.github.io/visualDataPresentation/d3s/tree_layout.html)
+* [ZOOMABLE TREE MAP](http://miguelvb.github.io/visualDataPresentation/d3s/treemap.html)
+* [ZOOMABLE TREE MAP, NO SIZES](http://miguelvb.github.io/visualDataPresentation/d3s/treemap_noprop.html)
 
 ---
 
